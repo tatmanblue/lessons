@@ -19,3 +19,9 @@ until they no longer want to try again.  The satisifies the requirements
 
 # Step 3
 Randomly assign data to array and print the results
+
+# Step 4
+Implements the add and multiply methods and output results
+
+# Step 5
+cleans up the code
