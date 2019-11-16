@@ -34,4 +34,5 @@ This satisifies step 3 and 4.
 cleans up the code
 
 # Step 6 Bonus Material
-TBD - use pointers instead of passing the array around
+1 - use pointers instead of passing the array around, allow for dynamic memory allocation
+2 - fix possible int overrun in multiplication
