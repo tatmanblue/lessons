@@ -9,19 +9,29 @@ The purpose of this lesson is to learn about 2 dimension arrays
 4. Multiply the values the arrays and output result
 5. Ask the user if they want to try again
 
+# Process
+We will solive the above requirements by doing steps individually rather than all at once
+
 # Step 1
+### Goal: simply outline in code how we expect the app to behave
 Write the program flow control
 
 # Step 2
+### Goal: add the functions that ask the user for input until the user asks to stop
 Get user input for number of elements in the array.  Keep asking the user
 until they no longer want to try again.  The satisifies the requirements
 1 and 5.
 
 # Step 3
-Randomly assign data to array and print the results
+### Goal: randomly generate data and print it
+This satisifies step 2.
 
 # Step 4
-Implements the add and multiply methods and output results
+### Goal: Implements the add and multiply methods and output results.  
+This satisifies step 3 and 4.
 
 # Step 5
 cleans up the code
+
+# Step 6 Bonus Material
+TBD - use pointers instead of passing the array around
