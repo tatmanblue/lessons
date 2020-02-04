@@ -5,6 +5,40 @@ import java.util.Random;
 
 public class RockPaperScissors 
 {
+	public static int getUserInput()
+	{
+		int choice = -1;
+		bool askForInput = true;
+		while (askForInput == true)
+		{
+			System.out.println("Please enter in a number");
+			choice = keyboardIn.nextInt();
+			switch (choice)
+			{
+				case 1:
+					System.out.println ("Player is rock");
+					break;
+				case 2:
+					System.out.println ("Player is paper");
+					break;
+				case 3:
+					System.out.println ("Player is scissor");
+					break;
+				default:
+					break;
+			}
+
+			System.out.println("Are you sure you want this? (y/n)");
+			char conf = keyboardIn.next().charAt(0);//User Validates
+			if(conf == 'y')
+			{
+				askForInput = false;
+			}
+		}
+
+		return choice;
+	}
+	
 	//there are errors in this program
 	/**
 	 * @param args
@@ -27,66 +61,9 @@ public class RockPaperScissors
 	      
 	      while(user > 0)
 	      {
-	    	  System.out.println("Please enter in a number");
 	    	  computer = generator.nextInt(3) + 1;	    	  
-	    	  user = keyboardIn.nextInt();
-	    	  
-		      //tell the player what was chosen
-		      if(user == 1)//player is rock
-		      {
-		         System.out.println ("Player is rock");
-		         System.out.println("Are you sure you want this? (y/n)");
-		         conf = keyboardIn.next().charAt(0);//User Validates
-		         if(conf == 'n')
-		         {
-		        	 System.out.println("re-enter number");
-		        	 user = keyboardIn.nextInt();
-		         }
-		         else if(conf == 'y')
-			        {
-			        	System.out.println ("Player is rock");
-			        }
-		        	 
-		      }
-		      else if (user == 2)//player is paper
-		      {
-		         System.out.println ("Player is paper");
-		         System.out.println("Are you sure you want this? (y/n)");
-		         conf = keyboardIn.next().charAt(0);//User Validates
-		         if(conf == 'n')
-		        	 user = keyboardIn.nextInt();
-		         else if(conf == 'y')
-			        {
-			        	System.out.println ("Player is paper");
-			        }
-		      }
-		      else if (user == 3) //player is scissors
-		      {
-		        System.out.println ("Player is scissors");
-		        System.out.println("Are you sure you want this? (y/n)");
-		        conf = keyboardIn.next().charAt(0);//User Validates
-		        if(conf == 'n')
-		        	 user = keyboardIn.nextInt();
-		        else if(conf == 'y')
-		        {
-		        	System.out.println ("Player is scissors");
-		        }
-		      }
-		      else if (user >= 4)
-		      {
-		    	  System.out.println("You're going to end the game!");
-		    	  System.out.println("Are you sure you want this? (y/n)");
-			      conf = keyboardIn.next().charAt(0);//User Validates
-			      if(conf == 'n')
-			    	  user = keyboardIn.nextInt();
-			      else if (conf == 'y')
-			      {
-			    	  System.out.println("Goodbye!");
-			    	  break;
-			      }
-		      }
-		      
-		      
+	    	  user = RockPaperScissors.getUserInput();
+
 		      //tell the player what the computer has chosen
 		      if(computer == 1)//computer is rock
 		      {
