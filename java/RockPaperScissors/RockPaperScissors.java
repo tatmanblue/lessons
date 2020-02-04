@@ -5,10 +5,10 @@ import java.util.Random;
 
 public class RockPaperScissors 
 {
-	public static int getUserInput()
+	public static int getUserInput(Scanner keyboardIn)
 	{
 		int choice = -1;
-		bool askForInput = true;
+		boolean askForInput = true;
 		while (askForInput == true)
 		{
 			System.out.println("Please enter in a number");
@@ -25,7 +25,10 @@ public class RockPaperScissors
 					System.out.println ("Player is scissor");
 					break;
 				default:
-					break;
+				    System.out.println("quitting...");
+				    askForInput = false;
+				    return choice;
+
 			}
 
 			System.out.println("Are you sure you want this? (y/n)");
@@ -62,7 +65,10 @@ public class RockPaperScissors
 	      while(user > 0)
 	      {
 	    	  computer = generator.nextInt(3) + 1;	    	  
-	    	  user = RockPaperScissors.getUserInput();
+	    	  user = RockPaperScissors.getUserInput(keyboardIn);
+
+	    	  if(user <= 0 || user > 3)
+	    	    break;
 
 		      //tell the player what the computer has chosen
 		      if(computer == 1)//computer is rock
