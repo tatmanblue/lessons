@@ -96,7 +96,6 @@ void RandomlyEdit()
 
 	list <StudentType> ::iterator it = students.begin();
 	int advanceBy = distr(generator);
-	cout << "\n    Advance by: " << advanceBy;
 	std::advance(it, advanceBy - 1);
 
 	cout << "\nEditing " << *it;
