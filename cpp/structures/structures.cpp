@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <random>
 
 using namespace std;
 
@@ -58,7 +59,7 @@ void EditStudent()
 {
 	list <StudentType> ::iterator it;
 	string name;
-	cout << "\Enter first name of student to edit\n";
+	cout << "\nEnter first name of student to edit\n";
 	cin >> name;
 	for (it = students.begin(); it != students.end(); it++)
 	{
@@ -87,8 +88,20 @@ void AddStudent()
 
 void RandomlyEdit()
 {
-	list <StudentType> ::iterator it;
-	// std::advance(it, 2);
+	const int rangeFrom = 1;
+	const int rangeTo = students.size();
+	std::random_device randDev;
+	std::mt19937 generator(randDev());
+	std::uniform_int_distribution<int>  distr(rangeFrom, rangeTo);
+
+	list <StudentType> ::iterator it = students.begin();
+	int advanceBy = distr(generator);
+	cout << "\n    Advance by: " << advanceBy;
+	std::advance(it, advanceBy - 1);
+
+	cout << "\nEditing " << *it;
+	it->count++;
+	students.end();
 }
 
 int main()
@@ -119,7 +132,7 @@ int main()
 			EditStudent();
 			break;
 		case 3:
-			cout << "randomly edits not enabled";
+			RandomlyEdit();
 			break;
 		case 4: 
 			PrintStudents();
