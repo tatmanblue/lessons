@@ -1,5 +1,5 @@
-import getopt;
-import sys;
+from getopt import *
+import sys
 
 def get_arguments():
 
@@ -14,37 +14,36 @@ def get_arguments():
     
     
 
-    if not options[0]:
-        path = DEFAULT_CSV_PATH
-        time = DEFAULT_TIME
 
-    elif options:
+    path = DEFAULT_CSV_PATH
+    time = DEFAULT_TIME
 
-        for (opts, args) in options[0]:  
+
+    for (opts, args) in options[0]:  
+        
+        # Help options         
+        if opts == "-h":
+            sys.exit(usage_collecter_usage())
+        elif opts == "--help":
+            sys.exit(usage_collecter_usage())
+        
+        # Path Options
+        if opts == '-p':
+            path = args
+        elif opts == '--path':
+            path = args
+
+        # Time Options
+        try:            
             
-            # Help options         
-            if opts == "-h":
-                sys.exit(usage_collecter_usage())
-            elif opts == "--help":
-                sys.exit(usage_collecter_usage())
-            
-            # Path Options
-            if opts == '-p':
-                path = args
-            elif opts == '--path':
-                path = args
+            if opts == "-t":
+                time = int(args)
+            elif opts == "--time":
+                time = int(args)
 
-            # Time Options
-            try:            
-                
-                if opts == "-t":
-                    time = int(args)
-                elif opts == "--time":
-                    time = int(args)
-
-            except ValueError as e:
-                print("ERROR, wrong value used MUST BE AN INT: ", e)
-                sys.exit(usage_collecter_usage())
+        except ValueError as e:
+            print("ERROR, wrong value used MUST BE AN INT: ", e)
+            sys.exit(usage_collecter_usage())
     
     return path, time
 
