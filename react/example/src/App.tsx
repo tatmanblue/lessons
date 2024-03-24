@@ -18,7 +18,13 @@ const App: React.FC = () => {
 
   const fetchData = async (agentType: string) => {
     try {
-      const response = await fetch(`http://services.tatmangames.com/agent/messages?agentType=${agentType}`);
+      const response = await fetch(`https://services.tatmangames.com/agent/messages?agentType=${agentType}`,{
+        method: "GET",
+        headers: {
+          "access-control-allow-origin" : "*",
+          "Content-type": "application/json; charset=UTF-8"
+        }});
+
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
