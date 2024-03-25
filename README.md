@@ -10,4 +10,4 @@ some homework lessons, step by step
 # C#
 
 # React
-[README.md](./React/README.md)  
+[README.md](./react/README.md)  
